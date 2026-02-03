@@ -98,9 +98,9 @@ main {
 
 
 .icon-card {
-    flex: 1 1 64px;              /* fixed width per icon */
-    max-height: 64px;
-    max-width: 64px;
+     flex: 0 1 64px;
+    width: 64px;
+    height: 64px;
 
     display: flex;
     align-items: center;
@@ -115,6 +115,12 @@ main {
     max-width: 70%;
     max-height: 70%;
     object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* Hover effect */
+.icon-card:hover img {
+    transform: scale(1.1);     
 }
 
 /* ===== Lists ===== */
