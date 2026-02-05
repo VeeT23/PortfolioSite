@@ -4,31 +4,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/gizmo.svg" type="image/x-icon">
+    <title>Vee Tobias – Spectral</title>
+    <meta name="description" content="Spectral by Vee Tobias.">
 
-    <title>Joseph Tobias – Spectral</title>
-    <meta name="description"
-        content="Spectral by Joseph Tobias.">
-
-    <link rel="stylesheet" href="../style.css">
+    <script src="/scripts/navbar.js" defer></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
+    <div id="navbar"></div>
 
     <!-- ===== Parallax Hero ===== -->
-    <header class="hero" style="background-image: url('../assets/Spectral.jpg');">
+    <header class="hero" style="background-image: url('/assets/Spectral.jpg');">
         <div class="hero-content">
             <h1>Spectral</h1>
-            <p class="subtitle">Faster than light</p>
+            <p class="subtitle">"Faster than light"</p>
+            <p class="subtitle">2026</p>
         </div>
     </header>
 
     <main>
-        <section class="card">
+        <section class="card"> <!-- Overview -->
             <h2>Overview</h2>
-            <p>
-                Spectral is a high-performance line following robot.
-            </p>
+
+            <div class="subcard">
+                <p>
+                    <strong>Spectral</strong> is a high-performance autonomous line-following robot built for the
+                    <em>Southworks Robotic Olympics: Pathfinder</em>, a Chicago Southland high-school competition.
+                    The goal: build a robot that follows a line on a mat, fastest lap wins.
+                </p>
+            </div>
+
+            <div class="subcard">
+                <p>
+                    Built entirely as a solo project, Spectral represents a deliberate step beyond my previous
+                    championship robot.
+                    While last year’s design was made with simplicity and off-the-shelf parts, Spectral prioritizes
+                    <strong>sheer performance</strong>.
+                    Nearly every system is custom: from the sensor array and power delivery to the compute module,
+                    firmware, chassis, and drive system.
+                </p>
+            </div>
         </section>
+
+        <section class="card"> <!-- Mechanical Design -->
+            <h2>Mechanical Design</h2>
+            <h3>Drive System</h3>
+
+            <div class="subcard">
+                <p>
+                    Spectral uses a 2-wheel differential drive with a rear caster, chosen for its mechanical simplicity,
+                    low friction losses, and predictable control dynamics at high speed. This configuration minimizes
+                    drivetrain complexity while allowing tight turning radii and aggressive line corrections.
+
+                    Propulsion is provided by 4215 brushless motors in a direct-drive configuration, eliminating gear
+                    reduction losses and backlash. Integrated hall-effect encoders provide high-resolution feedback for
+                    closed-loop velocity and position control, enabling precise motor response even during rapid
+                    acceleration and cornering.
+                </p>
+            </div>
+            <h3>Wheels & Traction</h3>
+            <div class="subcard">
+                <p>
+                    Rather than relying on off-the-shelf wheels, Spectral uses custom-cast urethane tires. Wheels are
+                    cast from
+                    resin-printed molds using Vitaflex 60A urethane, tuned for grip and compliance on the competition
+                    mat.
+                    Pigments were added during casting to control surface finish and consistency.
+
+                    This approach allowed traction characteristics to be tailored specifically to the course surface,
+                    improving
+                    acceleration and reducing slip during high-speed turns.
+                </p>
+            </div>
+            <h3>Chassis & Structure</h3>
+            <div class="subcard">
+                <p>
+                    The chassis is a hybrid carbon fiber / 3D-printed structure, combining stiffness with rapid
+                    iteration. The
+                    primary load-bearing frame is constructed from 5 mm carbon fiber rods, selected for their excellent
+                    strength-to-weight ratio and torsional rigidity. Custom PLA brackets tie the structure together and
+                    serve as
+                    mounting points for electronics and sensors.
+
+                    Originally designed with a 500 g target mass, the final robot exceeded expectations at 350 g,
+                    significantly
+                    improving power-to-weight ratio and dynamic response without sacrificing structural integrity.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="card"> <!-- Electrical System -->
+            <h2>Power & Electrical</h2>
+            <h3>Power Source & Philosophy</h3>
+            <div class="subcard">
+                <p>
+                    Spectral is powered by a 3S 450 mAh 75C LiPo battery, selected intentionally for its high discharge
+                    capability and minimal mass. Given the short lap times of the Pathfinder competition, additional
+                    capacity
+                    would have provided no performance benefit while directly harming acceleration and handling.
+
+                    This choice prioritizes power density over endurance, aligning the electrical system with the
+                    robot’s
+                    performance-first design goals.
+                </p>
+            </div>
+            <h3>Power Distribution & Protection</h3>
+            <div class="subcard">
+                <p>
+                    Battery power is routed through a custom-designed power distribution module, serving as the
+                    electrical
+                    backbone of the robot. Incoming power passes through:
+
+                    A 10 A main system fuse
+
+                    Dedicated 5 A fuses for each ESC
+
+                    Downstream voltage regulation and logic protection
+
+                    This layered protection strategy isolates failures, protects sensitive electronics, and prevents
+                    motor-side
+                    faults from cascading into the logic domain.
+                </p>
+            </div>
+            <h3>Regulation & Noise Management</h3>
+            <div class="subcard">
+                <p>
+                    The power module integrates two buck converters supplying regulated 5 V and 3.3 V rails for logic
+                    and
+                    sensing systems. Each rail is protected by a 1 A PTC resettable fuse to guard against overcurrent
+                    conditions.
+
+                    To ensure signal integrity in a high-current brushless environment, the PCB features:
+
+                    Electrically isolated ground planes for logic and motor power
+
+                    Extensive input and output decoupling on all converters
+
+                    Schematics and PCB layout screenshots are included to document the design and validation process.
+                </p>
+            </div>
+            <h3>Motor Control Electronics</h3>
+            <div class="subcard">
+                <p>
+                    Motor control is handled by dual ODrive Micro controllers, configured for sensored brushless
+                    operation. Each
+                    ESC was modified with an additional 1000 µF bulk capacitor to suppress voltage sag during rapid
+                    current
+                    transients.
+
+                    Current limits are enforced in firmware to protect both the motors and power system while
+                    maintaining
+                    aggressive acceleration.
+                </p>
+            </div>
+            <h3>Interconnects & Assembly</h3>
+            <div class="subcard">
+                <p>
+                    All interconnects are handled through custom-manufactured PCBs, produced via rapid prototyping
+                    services to
+                    ensure reliability and repeatability. Power connections use XT30 connectors for
+                    high-current
+                    paths and JST-GH connectors for compact, secure signal routing.
+
+                    This approach reduces wiring complexity, improves serviceability, and minimizes failure points under
+                    vibration.
+                </p>
+            </div>
+            <h3>Failure Analysis & Iteration</h3>
+            <div class="subcard">
+                <p>
+                    Early testing revealed fuse failures caused by inrush current from the added bulk capacitance on the
+                    ESCs.
+                    The issue was resolved by switching to time-delay (slo-blo) fuses, allowing transient currents
+                    without
+                    compromising fault protection.
+
+                    This iteration reinforced the importance of designing protection systems around real-world transient
+                    behavior, not just steady-state conditions.
+                </p>
+            </div>
+        </section>
+
+        <section class="card"> <!-- Control & Firmware -->
+            <h2>Control & Firmware</h2>
+
+            <h3>Overview</h3>
+            <div class="subcard">
+                <p>
+                    SPECTRAL’s control system can be conceptualized as a set of sensor inputs determining motor outputs,
+                    but under the hood it is a multi-layered, dynamically adjusting PID control system. Inputs include:
+                </p>
+                <ul>
+                    <li>Wheel encoders for precise rotational feedback</li>
+                    <li>Infrared line sensor array for path detection</li>
+                    <li>IMU accelerometer for slip correction and localization</li>
+                </ul>
+                <p>
+                    The combination of these sensors allows the robot to react instantly to line deviations, maintain
+                    speed, and
+                    anticipate track features.
+                </p>
+            </div>
+
+            <h3>Compute Platform & Firmware</h3>
+            <div class="subcard">
+                <p>
+                    Control is powered by an <strong>ESP32-WROOM-UE32</strong>, chosen for its compact form factor and
+                    built-in wireless connectivity (used as a remote E-stop). Firmware is implemented in
+                    <strong>C++</strong> on a task-based RTOS, with CPU cores partitioned between:
+                </p>
+                <ul>
+                    <li>Main control loop (1 kHz)</li>
+                    <li>Communication, telemetry, and debug display (lower-frequency tasks)</li>
+                </ul>
+                <p>
+                    This separation ensures deterministic control timing while supporting debugging and telemetry
+                    without affecting performance.
+                </p>
+
+                <br>
+
+                <p>Spectral is equipped with five sensor modules, each containing eight infrared detectors. Sensor
+                    selection is handled via multiplexers:</p>
+                <ul>
+                    <li>One multiplexer switches the transmitter LED</li>
+                    <li>One multiplexer selects the receiver signal</li>
+                </ul>
+                <p>
+                    This allows five outputs to read 40 sensors using only three MCU pins, effectively acting as a 5p8t
+                    switch.
+                    The array provides a 2 px/cm resolution over a 200 mm sweep, ensuring that multiple sensors detect
+                    the 3 cm-wide line at any moment.
+                </p>
+                <p>Each control tick proceeds as follows:</p>
+                <ol>
+                    <li>The currently selected channel of all five modules is sampled multiple times to reduce noise.
+                    </li>
+                    <li>The multiplexer address is incremented after settling time while the MCU processes the previous
+                        readings.</li>
+                    <li>Raw analog values are averaged, calibrated, and thresholded to boolean states.</li>
+                    <li>A middle-first search identifies the sensor closest to the line’s center.</li>
+                    <li>The span of sensors detecting the line is calculated, and the center of the span defines the
+                        line error.</li>
+                </ol>
+                <p>
+                    This method was chosen over a simple weighted average to avoid reacting to printed “distractions” on
+                    the track, a lesson learned from last year’s design.
+                </p>
+            </div>
+
+            <h3>Dynamic PID & Position Estimation</h3>
+            <div class="subcard">
+                <p>
+                    SPECTRAL’s PID gains are dynamically adjusted based on estimated position along the track, improving
+                    performance in sections with sharp turns or straights. Position is calculated using wheel rotation
+                    fused with the IMU accelerometer to compensate for wheel slip, providing more accurate real-world
+                    localization.
+                </p>
+
+                <br>
+                <p>Processed commands are sent over CAN Bus to the ODrive Micros, configured with:</p>
+                <br>
+                <ul>
+                    <li>Maximum velocity: 40 turns/s</li>
+                    <li>Acceleration limit: 160 turns/s²</li>
+                </ul>
+                <br>
+                <p>
+                    This ensures the robot respects physical limits while maintaining high responsiveness.
+                </p>
+            </div>
+
+            <h3>Safety & Watchdogs</h3>
+            <div class="subcard">
+                <p>Multiple layers of protection are implemented to prevent uncontrolled behavior:</p>
+                <br>
+                <ul>
+                    <li>Remote E-stop via wireless interface</li>
+                    <li>Motor control watchdogs enforcing loop health</li>
+                    <li>Remote connection watchdog to disable operation if telemetry is lost</li>
+                </ul>
+                <br>
+                <p>
+                    These safeguards ensure that Spectral can be aggressively tuned without risk to people or hardware.
+                </p>
+            </div>
+        </section>
+
+
+
+
     </main>
 
 </body>

@@ -4,38 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Joseph Tobias – Portfolio</title>
-    <meta name="description"
-        content="Personal portfolio of Joseph Tobias. Programming, simulation systems, and projects.">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/assets/gizmo.svg" type="image/x-icon">
+    <title>Vee Tobias – Portfolio</title>
+    <meta name="description" content="Personal portfolio of Vee Tobias. Programming, simulation systems, and projects.">
+    
+    <script src="/scripts/navbar.js" defer></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
+    <div id="navbar"></div>
+
 
     <!-- ===== Parallax Hero ===== -->
-    <header class="hero" style="background-image: url('assets/Header.jpg');">
+    <header class="hero" style="background-image: url('/assets/Header.jpg');">
         <div class="hero-content">
-            <h1>Joseph Tobias</h1>
+            <h1>Vee Tobias</h1>
             <p class="subtitle">Student Engineer | Robotics Leader | Embedded Systems & Simulation Developer</p>
         </div>
     </header>
 
     <main>
-        <section class="card">
+        <section class="card"> <!-- About me -->
             <h2>About Me</h2>
             <p>
                 I’m a junior at Victor J. Andrew High School based in Tinley Park, IL, with a lifelong passion for
                 engineering, robotics, and electronics. I started building circuits at age six and have since grown into
-                embedded systems, competitive robotics, and low-level simulation development. Today, I focus on
-                designing systems that balance performance, reliability, and real-world constraints.
+                embedded systems, competitive robotics, and low-level simulation development.
             </p>
         </section>
-
-        <section class="card">
+        <section class="card"> <!-- Skills -->
             <h2>Skills</h2>
-
             <div class="skills-row">
                 <a class="icon-card" title="AutoCAD — 2D drafting & technical drawings">
                     <img src="skills/icons/autocad.png" alt="AutoCAD">
@@ -78,35 +77,32 @@
                 </a>
             </div>
         </section>
-
-        <section class="card">
+        <section class="card"> <!-- Featured Projects -->
             <h2>Featured Projects</h2>
-
             <div class="project-row">
-                <a href="projects/spectral.html" class="image-card">
-                    <img src="assets/SpectralClose.jpg" alt="Spectral">
+                <a href="/projects/spectral.html" class="image-card">
+                    <img src="/assets/SpectralClose.jpg" alt="Spectral">
                     <div class="caption">
-                        Pathfinder version 3, dubbed spectral for its spectrum of light.
+                        Pathfinder version 3, Spectral, my biggest project to date.
                     </div>
                 </a>
 
-                <a href="projects/pathfinder.html" class="image-card">
-                    <img src="assets/PathfinderClose.jpg" alt="Pathfinder">
+                <a href="/projects/pathfinder.html" class="image-card">
+                    <img src="/assets/PathfinderClose.jpg" alt="Pathfinder">
                     <div class="caption">
                         Pathfinder version 2, my first big success.
                     </div>
                 </a>
 
-                <a href="projects/marblerun.html" class="image-card">
-                    <img src="assets/MarbleRunClose.jpg" alt="Marble Run">
+                <a href="/projects/marblerun.html" class="image-card">
+                    <img src="/assets/MarbleRunClose.jpg" alt="Marble Run">
                     <div class="caption">
-                        My award winning submission to the SWSC Science competition.
+                        My award winning submission to the SWSC Science competition, a marble run.
                     </div>
                 </a>
             </div>
         </section>
-
-        <section class="card">
+        <section class="card"> <!-- Contact -->
             <h2>Contact</h2>
             <p>
                 Email: <a href="mailto:josephtobias239@gmail.com">josephtobias239@gmail.com</a><br>
@@ -116,9 +112,11 @@
     </main>
 
     <footer>
-        <p>© 2026 Joseph Tobias</p>
+        <p>© 2026 Vee Tobias</p>
     </footer>
 
 </body>
+
+
 
 </html>
