@@ -190,12 +190,20 @@ main {
     width: 280px;
     margin: 0;
 }
-
-.subcard-figure img {
+.image-zoom-container {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    overflow: hidden;      /* clip the zoomed image */
+    border-radius: 10px;   /* match the image rounding */
 }
+
+.image-zoom-container img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s ease-out;
+    transform-origin: center center;
+}
+
+
 
 /* Caption styling */
 .subcard-figure figcaption {
